@@ -1,0 +1,4 @@
+externals:
+  - external:
+    path: resource/.vscode
+    mount: .vscode

@@ -50,6 +50,7 @@ import 'Ab192359fd11a5790b96943f26aed50a9.g.dart';
 import 'Abd17acdf48fe12226ff30811929c6635.g.dart';
 import 'Ac47d0d806ec79a051b171ad3050e8777.g.dart';
 import 'Ac5d7050a167e1da76bdd7b92e982a75e.g.dart';
+import 'Ac5ee828f9c68f5ed488859977eac9b76.g.dart';
 import 'Ac94a9f6fcd609a049a966b8cf76f7531.g.dart';
 import 'Ac9acdc8ecf89dda52925bfd5d7cdd0bc.g.dart';
 import 'Acafe38d0c56f9ea4e818076d70b0d0c6.g.dart';
@@ -167,6 +168,7 @@ class ResourceRegistry {
     'lib/presentation_layer/general/base/theme/app_text_theme.dart':
         Ac47d0d806ec79a051b171ad3050e8777(),
     'lib/main_dev.dart': Ac5d7050a167e1da76bdd7b92e982a75e(),
+    '.vscode/launch.json': Ac5ee828f9c68f5ed488859977eac9b76(),
     'lib/presentation_layer/stories/launch/launch_screen.dart':
         Ac94a9f6fcd609a049a966b8cf76f7531(),
     'lib/gen/fonts.gen.dart': Ac9acdc8ecf89dda52925bfd5d7cdd0bc(),
