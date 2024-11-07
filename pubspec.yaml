@@ -1,7 +1,7 @@
 name: mvvm_cli_nerdzlab
-description: A sample command-line application with basic argument parsing.
-version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+description: MVVM CLI Tool, a command-line utility designed to streamline the creation of MVVM projects.
+version: 1.0.0
+repository: https://github.com/nerdzlab/NerdzFlutter-MVVMCli
 
 environment:
   sdk: ^3.5.2
