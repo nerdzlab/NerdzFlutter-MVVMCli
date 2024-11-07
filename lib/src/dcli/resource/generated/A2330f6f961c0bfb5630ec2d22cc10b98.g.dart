@@ -1,0 +1,75 @@
+// ignore: prefer_relative_imports
+import 'package:dcli/dcli.dart';
+
+/// GENERATED -- GENERATED
+///
+/// DO NOT MODIFIY
+///
+/// This script is generated via [Resource.pack()].
+///
+/// GENERATED - GENERATED
+
+class A2330f6f961c0bfb5630ec2d22cc10b98 extends PackedResource {
+  /// PackedResource - android/app/src/main/AndroidManifest.xml
+  const A2330f6f961c0bfb5630ec2d22cc10b98();
+
+  /// A hash of the resource (pre packed) calculated by
+  /// [calculateHash].
+  /// This hash can be used to check if the resource needs to
+  /// be updated on the target system.
+  /// Use :
+  /// ```dart
+  ///   calculateHash(pathToResource).hexEncode() == packResource.checksum
+  /// ```
+  /// to compare the checksum of the local file with
+  /// this checksum
+  @override
+  String get checksum =>
+      '123a68a6702aeaedae1a1833bb89b60a';
+
+  /// <package>/resources relative path to the original resource.
+  @override
+  String get originalPath => 'android/app/src/main/AndroidManifest.xml';
+
+  @override
+  String get content => '''
+PG1hbmlmZXN0IHhtbG5zOmFuZHJvaWQ9Imh0dHA6Ly9zY2hlbWFzLmFuZHJvaWQuY29tL2Fway9yZXMv
+YW5kcm9pZCI+CiAgICA8dXNlcy1wZXJtaXNzaW9uIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZC5wZXJtaXNz
+aW9uLklOVEVSTkVUIiAvPgogICAgPGFwcGxpY2F0aW9uCiAgICAgICAgYW5kcm9pZDpsYWJlbD0iQHN0
+cmluZy9hcHBfbmFtZSIKICAgICAgICBhbmRyb2lkOm5hbWU9IiR7YXBwbGljYXRpb25OYW1lfSIKICAg
+ICAgICBhbmRyb2lkOmljb249IkBtaXBtYXAvaWNfbGF1bmNoZXIiPgogICAgICAgIDxhY3Rpdml0eQog
+ICAgICAgICAgICBhbmRyb2lkOm5hbWU9Ii5NYWluQWN0aXZpdHkiCiAgICAgICAgICAgIGFuZHJvaWQ6
+ZXhwb3J0ZWQ9InRydWUiCiAgICAgICAgICAgIGFuZHJvaWQ6bGF1bmNoTW9kZT0ic2luZ2xlVG9wIgog
+ICAgICAgICAgICBhbmRyb2lkOnRhc2tBZmZpbml0eT0iIgogICAgICAgICAgICBhbmRyb2lkOnRoZW1l
+PSJAc3R5bGUvTGF1bmNoVGhlbWUiCiAgICAgICAgICAgIGFuZHJvaWQ6Y29uZmlnQ2hhbmdlcz0ib3Jp
+ZW50YXRpb258a2V5Ym9hcmRIaWRkZW58a2V5Ym9hcmR8c2NyZWVuU2l6ZXxzbWFsbGVzdFNjcmVlblNp
+emV8bG9jYWxlfGxheW91dERpcmVjdGlvbnxmb250U2NhbGV8c2NyZWVuTGF5b3V0fGRlbnNpdHl8dWlN
+b2RlIgogICAgICAgICAgICBhbmRyb2lkOmhhcmR3YXJlQWNjZWxlcmF0ZWQ9InRydWUiCiAgICAgICAg
+ICAgIGFuZHJvaWQ6d2luZG93U29mdElucHV0TW9kZT0iYWRqdXN0UmVzaXplIj4KICAgICAgICAgICAg
+PCEtLSBTcGVjaWZpZXMgYW4gQW5kcm9pZCB0aGVtZSB0byBhcHBseSB0byB0aGlzIEFjdGl2aXR5IGFz
+IHNvb24gYXMKICAgICAgICAgICAgICAgICB0aGUgQW5kcm9pZCBwcm9jZXNzIGhhcyBzdGFydGVkLiBU
+aGlzIHRoZW1lIGlzIHZpc2libGUgdG8gdGhlIHVzZXIKICAgICAgICAgICAgICAgICB3aGlsZSB0aGUg
+Rmx1dHRlciBVSSBpbml0aWFsaXplcy4gQWZ0ZXIgdGhhdCwgdGhpcyB0aGVtZSBjb250aW51ZXMKICAg
+ICAgICAgICAgICAgICB0byBkZXRlcm1pbmUgdGhlIFdpbmRvdyBiYWNrZ3JvdW5kIGJlaGluZCB0aGUg
+Rmx1dHRlciBVSS4gLS0+CiAgICAgICAgICAgIDxtZXRhLWRhdGEKICAgICAgICAgICAgICAgIGFuZHJv
+aWQ6bmFtZT0iaW8uZmx1dHRlci5lbWJlZGRpbmcuYW5kcm9pZC5Ob3JtYWxUaGVtZSIKICAgICAgICAg
+ICAgICAgIGFuZHJvaWQ6cmVzb3VyY2U9IkBzdHlsZS9Ob3JtYWxUaGVtZSIKICAgICAgICAgICAgLz4K
+ICAgICAgICAgICAgPGludGVudC1maWx0ZXI+CiAgICAgICAgICAgICAgICA8YWN0aW9uIGFuZHJvaWQ6
+bmFtZT0iYW5kcm9pZC5pbnRlbnQuYWN0aW9uLk1BSU4iIC8+CiAgICAgICAgICAgICAgICA8Y2F0ZWdv
+cnkgYW5kcm9pZDpuYW1lPSJhbmRyb2lkLmludGVudC5jYXRlZ29yeS5MQVVOQ0hFUiIgLz4KICAgICAg
+ICAgICAgPC9pbnRlbnQtZmlsdGVyPgogICAgICAgIDwvYWN0aXZpdHk+CiAgICAgICAgPCEtLSBEb24n
+dCBkZWxldGUgdGhlIG1ldGEtZGF0YSBiZWxvdy4KICAgICAgICAgICAgIFRoaXMgaXMgdXNlZCBieSB0
+aGUgRmx1dHRlciB0b29sIHRvIGdlbmVyYXRlIEdlbmVyYXRlZFBsdWdpblJlZ2lzdHJhbnQuamF2YSAt
+LT4KICAgICAgICA8bWV0YS1kYXRhCiAgICAgICAgICAgIGFuZHJvaWQ6bmFtZT0iZmx1dHRlckVtYmVk
+ZGluZyIKICAgICAgICAgICAgYW5kcm9pZDp2YWx1ZT0iMiIgLz4KICAgIDwvYXBwbGljYXRpb24+CiAg
+ICA8IS0tIFJlcXVpcmVkIHRvIHF1ZXJ5IGFjdGl2aXRpZXMgdGhhdCBjYW4gcHJvY2VzcyB0ZXh0LCBz
+ZWU6CiAgICAgICAgIGh0dHBzOi8vZGV2ZWxvcGVyLmFuZHJvaWQuY29tL3RyYWluaW5nL3BhY2thZ2Ut
+dmlzaWJpbGl0eSBhbmQKICAgICAgICAgaHR0cHM6Ly9kZXZlbG9wZXIuYW5kcm9pZC5jb20vcmVmZXJl
+bmNlL2FuZHJvaWQvY29udGVudC9JbnRlbnQjQUNUSU9OX1BST0NFU1NfVEVYVC4KCiAgICAgICAgIElu
+IHBhcnRpY3VsYXIsIHRoaXMgaXMgdXNlZCBieSB0aGUgRmx1dHRlciBlbmdpbmUgaW4gaW8uZmx1dHRl
+ci5wbHVnaW4udGV4dC5Qcm9jZXNzVGV4dFBsdWdpbi4gLS0+CiAgICA8cXVlcmllcz4KICAgICAgICA8
+aW50ZW50PgogICAgICAgICAgICA8YWN0aW9uIGFuZHJvaWQ6bmFtZT0iYW5kcm9pZC5pbnRlbnQuYWN0
+aW9uLlBST0NFU1NfVEVYVCIgLz4KICAgICAgICAgICAgPGRhdGEgYW5kcm9pZDptaW1lVHlwZT0idGV4
+dC9wbGFpbiIgLz4KICAgICAgICA8L2ludGVudD4KICAgIDwvcXVlcmllcz4KPC9tYW5pZmVzdD4=
+  ''';
+}
