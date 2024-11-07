@@ -1,0 +1,69 @@
+// ignore: prefer_relative_imports
+import 'package:dcli/dcli.dart';
+
+/// GENERATED -- GENERATED
+///
+/// DO NOT MODIFIY
+///
+/// This script is generated via [Resource.pack()].
+///
+/// GENERATED - GENERATED
+
+class Abd17acdf48fe12226ff30811929c6635 extends PackedResource {
+  /// PackedResource - pubspec.yaml
+  const Abd17acdf48fe12226ff30811929c6635();
+
+  /// A hash of the resource (pre packed) calculated by
+  /// [calculateHash].
+  /// This hash can be used to check if the resource needs to
+  /// be updated on the target system.
+  /// Use :
+  /// ```dart
+  ///   calculateHash(pathToResource).hexEncode() == packResource.checksum
+  /// ```
+  /// to compare the checksum of the local file with
+  /// this checksum
+  @override
+  String get checksum =>
+      '8f431e77d945462394b682e9f2631f9f';
+
+  /// <package>/resources relative path to the original resource.
+  @override
+  String get originalPath => 'pubspec.yaml';
+
+  @override
+  String get content => '''
+bmFtZTogVklFV19NT0RFTF9QUk9KRUNUX0lERU5USUZJRVJfUVczMgpkZXNjcmlwdGlvbjogIkEgbmV3
+IEZsdXR0ZXIgcHJvamVjdC4iCnZlcnNpb246IDEuMC4wKzEKCmVudmlyb25tZW50OgogIHNkazogJz49
+My4yLjIgPDQuMC4wJwoKZmx1dHRlcl9nZW46CiAgb3V0cHV0OiBsaWIvZ2VuLwogIGxpbmVfbGVuZ3Ro
+OiA4MAoKICBpbnRlZ3JhdGlvbnM6CiAgICBmbHV0dGVyX3N2ZzogdHJ1ZQogICAgZmxhcmVfZmx1dHRl
+cjogdHJ1ZQogICAgcml2ZTogdHJ1ZQogICAgbG90dGllOiB0cnVlCgogIGNvbG9yczoKICAgIGlucHV0
+czoKICAgICAgLSBhc3NldHMvY29sb3JzL2FsZXJ0cy54bWwKICAgICAgLSBhc3NldHMvY29sb3JzL25l
+dXRyYWxzLnhtbAogICAgICAtIGFzc2V0cy9jb2xvcnMvcHJpbWFyeS54bWwKICAgICAgLSBhc3NldHMv
+Y29sb3JzL3NlY29uZGFyeS54bWwKICAgICAgLSBhc3NldHMvY29sb3JzL3NwZWNpYWxzLnhtbAoKZGVw
+ZW5kZW5jaWVzOgogIGZsdXR0ZXI6CiAgICBzZGs6IGZsdXR0ZXIKCiAgZmx1dHRlcl9sb2NhbGl6YXRp
+b25zOgogICAgc2RrOiBmbHV0dGVyCgogIGRpbzogXjUuMi4xKzEKICBsb2dnZXI6IF4yLjMuMAogIHRh
+bGtlcl9kaW9fbG9nZ2VyOiBeNC4yLjMKICBzaGFrZV9kZXRlY3RvcjogXjAuMS4xCiAgdGFsa2VyX2Zs
+dXR0ZXI6IF40LjIuMAoKICBmcmVlemVkOiBeMi40LjcKICBmcmVlemVkX2Fubm90YXRpb246IF4yLjQu
+MQogIGpzb25fYW5ub3RhdGlvbjogXjQuOS4wCgogIGdldF9pdDogXjguMC4wCiAgZ2V0X3N0b3JhZ2U6
+IF4yLjEuMQoKICBpbnRsOiBeMC4xOS4wCgogIHByb3ZpZGVyOiBeNi4xLjIKICBmb2N1c19kZXRlY3Rv
+cjogXjIuMC4xCgogIGF3ZXNvbWVfZGlhbG9nOiBeMy4yLjEKICBhZGFwdGl2ZV9kaWFsb2c6IF4yLjEu
+MAogIHRvcF9zbmFja2Jhcl9mbHV0dGVyOiBeMy4xLjAKCiAgZmx1dHRlcl9sYXVuY2hlcl9pY29uczog
+XjAuMTQuMQogIGZsdXR0ZXJfbmF0aXZlX3NwbGFzaDogXjIuNC4wCgpkZXZfZGVwZW5kZW5jaWVzOgog
+IGZsdXR0ZXJfdGVzdDoKICAgIHNkazogZmx1dHRlcgoKICBmbHV0dGVyX2xpbnRzOiBeNS4wLjAKICBq
+c29uX3NlcmlhbGl6YWJsZTogXjYuOC4wCiAgZmx1dHRlcl9nZW46IF41LjUuMCsxCiAgYnVpbGRfcnVu
+bmVyOiBeMi40LjEwCiAgZmx1dHRlcl9nZW5fcnVubmVyOiBeNS41LjArMQoKIyBmbHV0dGVyX2xhdW5j
+aGVyX2ljb25zOgojICAgYW5kcm9pZDogdHJ1ZQojICAgaW1hZ2VfcGF0aF9hbmRyb2lkOiAiYXNzZXRz
+L2ltYWdlcy9hcHBfaWNvbl9hbmRyb2lkLnBuZyIKIyAgIGltYWdlX3BhdGhfaW9zOiAiYXNzZXRzL2lt
+YWdlcy9hcHBfaWNvbl9pb3MucG5nIgojICAgYWRhcHRpdmVfaWNvbl9iYWNrZ3JvdW5kOiAiI0ZGRkZG
+RiIKIyAgIGFkYXB0aXZlX2ljb25fZm9yZWdyb3VuZDogImFzc2V0cy9pbWFnZXMvYXBwX2ljb25fYW5k
+cm9pZC5wbmciCiMgICBpb3M6IHRydWUKCiMgZmx1dHRlcl9uYXRpdmVfc3BsYXNoOgojICAgY29sb3I6
+ICIjRjdGNkYzIgojICAgaW1hZ2U6IGFzc2V0cy9pbWFnZXMvc3BsYXNoX2ltYWdlLnBuZwoKIyAgIGFu
+ZHJvaWRfMTI6CiMgICAgIGltYWdlOiBhc3NldHMvaW1hZ2VzL3NwbGFzaF9pbWFnZV9hbmRyb2lkXzEy
+LnBuZwojICAgICBpY29uX2JhY2tncm91bmRfY29sb3I6ICIjRjdGNkYzIgoKIyAgIHdlYjogZmFsc2UK
+CmZsdXR0ZXI6CiAgdXNlcy1tYXRlcmlhbC1kZXNpZ246IHRydWUKICBnZW5lcmF0ZTogdHJ1ZQoKICBh
+c3NldHM6CiAgICAtIGFzc2V0cy9pbWFnZXMvCgogIGZvbnRzOgogICAgLSBmYW1pbHk6IE1vbnRzZXJy
+YXQKICAgICAgZm9udHM6CiAgICAgICAgLSBhc3NldDogYXNzZXRzL2ZvbnRzL01vbnRzZXJyYXQtUmVn
+dWxhci50dGYKICAgICAgICAgIHdlaWdodDogNDAw
+  ''';
+}
