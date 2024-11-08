@@ -1,63 +1,66 @@
 import 'package:dcli/dcli.dart';
-import 'package:mvvm_cli_nerdzlab/core/constatns/exit_code.dart';
-import 'package:mvvm_cli_nerdzlab/core/constatns/identifiers.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/exit_code.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/file_constants.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/identifiers.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/extensions.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/file_util.dart';
-import 'package:mvvm_cli_nerdzlab/core/utils/flutter_util.dart';
+import 'package:mvvm_cli_nerdzlab/core/utils/process_util.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/validator_util.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/command_interface.dart';
-import 'package:path/path.dart';
 
 class CreateCommand implements CommandInterface {
   @override
   void run() async {
     try {
-      var projectName = ask('Project name:', validator: ProjectNameValidator());
+      final String projectName =
+          ask('Project name:', validator: ProjectNameValidator());
+      final bool addInitialCommits = _askForInitialCommits();
 
       print(green('Creating Flutter project.'));
-      final createProjectResult = await FlutterUtil.createProject(projectName);
+      await ProcessUtil.createProject(projectName);
 
-      if (!createProjectResult) {
-        ExitCode.error();
-        return;
-      }
+      print(green('Changing working directory.'));
+      FileUtil.changeWorkingDirectoryToSubDir(projectName);
 
       print(green('Copying Template project.'));
-      FileUtil.copyTemplate(projectName);
+      FileUtil.copyProjectTemplate();
 
       print(green('Renaming project identifier.'));
       await FileUtil.renameIdentifierInDirectory(
-          projectFolder: projectName,
-          newIdentifier: projectName,
-          oldIdentifier: Identifiers.projectIdentifier,
-          allowedFormats: ['.dart', '.yaml', '.gradle']);
+        newIdentifier: projectName,
+        oldIdentifier: Identifiers.projectIdentifier,
+        allowedFormats: FileConstants.mainProjectFormats,
+      );
 
       print(green('Adding flavors for IOs.'));
-      await FileUtil.updatePbxprojData(projectName);
+      await FileUtil.updatePbxprojData();
 
       print(green('Renaming IOs pbxproj identifier.'));
       await FileUtil.renameIdentifierInDirectory(
-          projectFolder: join(projectName, 'ios', 'Runner.xcodeproj'),
-          newIdentifier: projectName.toCamelCase(),
-          oldIdentifier: Identifiers.projectIdentifier,
-          allowedFormats: ['.pbxproj']);
+        path: FileConstants.runnerXcodeprojPath(),
+        newIdentifier: projectName.toCamelCase(),
+        oldIdentifier: Identifiers.projectIdentifier,
+        allowedFormats: FileConstants.pbxprojFormat,
+      );
 
       print(green('Removing old files'));
-      // Old Runner
-      await FileUtil.removeFile(join(projectName, 'ios', 'Runner.xcodeproj',
-          'xcshareddata', 'xcschemes', 'Runner.xcscheme'));
-      // Old main.dart
-      await FileUtil.removeFile(join(projectName, 'lib', 'main.dart'));
+      await FileUtil.removeFile(
+          FileConstants.runnerXcschemePath()); // Removing old Runner
 
       print(green('Updating .gitignore for ENV'));
-      await FileUtil.updateGitignoreData(projectName);
+      await FileUtil.updateGitignoreData();
 
       print(green('Running `pub get` command.'));
-      final pubGetResult = await FlutterUtil.pubGet(projectName);
+      await ProcessUtil.pubGet();
 
-      if (!pubGetResult) {
-        ExitCode.error();
-        return;
+      if (addInitialCommits) {
+        print(green('Adding initial comments.'));
+        await ProcessUtil.gitInitRepo();
+        await ProcessUtil.gitCommit(message: 'Init repo', allowEmpty: true);
+        await ProcessUtil.gitAddAll();
+        await ProcessUtil.gitCommit(message: 'Init project');
+      } else {
+        print(yellow('Skipping adding git initial comments.'));
       }
 
       print(green('Successfully generated MVVM project!'));
@@ -65,5 +68,13 @@ class CreateCommand implements CommandInterface {
       print(red(e.toString()));
       ExitCode.error();
     }
+  }
+
+  bool _askForInitialCommits() {
+    final String response =
+        ask('Add initial commits [Y/n]:', validator: YesNoValidator());
+
+    if (response == 'Y' || response == 'y' || response == '1') return true;
+    return false;
   }
 }

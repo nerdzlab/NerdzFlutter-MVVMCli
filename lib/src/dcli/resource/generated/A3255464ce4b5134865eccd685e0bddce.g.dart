@@ -9,9 +9,9 @@ import 'package:dcli/dcli.dart';
 ///
 /// GENERATED - GENERATED
 
-class A5dc34467d083121d3f40b8bea61d136b extends PackedResource {
-  /// PackedResource - lib/env/dev_env.dart
-  const A5dc34467d083121d3f40b8bea61d136b();
+class A3255464ce4b5134865eccd685e0bddce extends PackedResource {
+  /// PackedResource - .prod.env
+  const A3255464ce4b5134865eccd685e0bddce();
 
   /// A hash of the resource (pre packed) calculated by
   /// [calculateHash].
@@ -25,17 +25,14 @@ class A5dc34467d083121d3f40b8bea61d136b extends PackedResource {
   /// this checksum
   @override
   String get checksum =>
-      '99cd67c2d0b2cbf416e6882608de621c';
+      '62be822ec836ff8c272184693788f072';
 
   /// <package>/resources relative path to the original resource.
   @override
-  String get originalPath => 'lib/env/dev_env.dart';
+  String get originalPath => '.prod.env';
 
   @override
   String get content => '''
-aW1wb3J0ICdwYWNrYWdlOmVudmllZC9lbnZpZWQuZGFydCc7CgpwYXJ0ICdkZXZfZW52LmcuZGFydCc7
-CgpARW52aWVkKHBhdGg6ICcuZGV2LmVudicpCmFic3RyYWN0IGNsYXNzIERldkVudiB7CiAgQEVudmll
-ZEZpZWxkKHZhck5hbWU6ICdBUElfVVJMJykKICBzdGF0aWMgY29uc3QgU3RyaW5nIGFwaVVybCA9IF9E
-ZXZFbnYuYXBpVXJsOwp9Cg==
+QVBJPSJodHRwczovL2FwaXByb2QuY29tIg==
   ''';
 }

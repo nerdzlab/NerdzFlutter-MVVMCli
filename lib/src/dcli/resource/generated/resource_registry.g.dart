@@ -11,6 +11,7 @@ import 'A1eb845ab970ffe6208fb42af4a894494.g.dart';
 import 'A2330f6f961c0bfb5630ec2d22cc10b98.g.dart';
 import 'A297efcd5d45191fb70cccec6822e8d42.g.dart';
 import 'A3242c7742263d9f15070d57b5455190d.g.dart';
+import 'A3255464ce4b5134865eccd685e0bddce.g.dart';
 import 'A33661602f23ced7aff98ee12e53f92f5.g.dart';
 import 'A35b8a24e0c387e8aee1194f782e6f601.g.dart';
 import 'A3ad2b55e3cb859e03393af3fe34b2443.g.dart';
@@ -20,6 +21,7 @@ import 'A4b127b725cdb260a7cd45d3a50491b12.g.dart';
 import 'A4baa84d2b166ad5c7d95a8027f60197f.g.dart';
 import 'A4c0ad69286b37acf908e1c3840a73f50.g.dart';
 import 'A530bf66034a355ba82fc6b855b712aba.g.dart';
+import 'A53458d0f7a6235a80ff0923fe2492222.g.dart';
 import 'A5455ecf9deca828589566951e88042cf.g.dart';
 import 'A568dcc061e0872b08fee0b0f5631d469.g.dart';
 import 'A5692e6bea2ef8e2c647bbc7c4350e7e5.g.dart';
@@ -63,6 +65,7 @@ import 'Adf1749bffa593a5462b3029eb1212003.g.dart';
 import 'Ae2f5746e54fa1d0d88858c833263983d.g.dart';
 import 'Ae3f262b2908d5b2145ec991dca6c4d5b.g.dart';
 import 'Ae4ba41d03adbb8256e4dca5135679a9c.g.dart';
+import 'Ae4d67510782028d193aea2d45c6c0b1d.g.dart';
 import 'Ae4d9e46b3f3f55845abb547d733b638f.g.dart';
 import 'Aee2498eea986eb4d4b3268a38105fed2.g.dart';
 import 'Aef6d7ced008982027439054801613335.g.dart';
@@ -109,6 +112,7 @@ class ResourceRegistry {
     'lib/presentation_layer/general/abstract/snack_bar_mixin.dart':
         A297efcd5d45191fb70cccec6822e8d42(),
     'lib/gen/colors.gen.dart': A3242c7742263d9f15070d57b5455190d(),
+    '.prod.env': A3255464ce4b5134865eccd685e0bddce(),
     'lib/business_layer/network/api/user_api.dart':
         A33661602f23ced7aff98ee12e53f92f5(),
     'lib/localizations/app_en.arb': A35b8a24e0c387e8aee1194f782e6f601(),
@@ -123,6 +127,7 @@ class ResourceRegistry {
     'assets/images/google_logo.png': A4c0ad69286b37acf908e1c3840a73f50(),
     'lib/presentation_layer/constants/text_style_const.dart':
         A530bf66034a355ba82fc6b855b712aba(),
+    'lib/main.dart': A53458d0f7a6235a80ff0923fe2492222(),
     'assets/colors/specials.xml': A5455ecf9deca828589566951e88042cf(),
     'ios/Runner/GeneratedPluginRegistrant.h':
         A568dcc061e0872b08fee0b0f5631d469(),
@@ -191,6 +196,7 @@ class ResourceRegistry {
         Ae3f262b2908d5b2145ec991dca6c4d5b(),
     'android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java':
         Ae4ba41d03adbb8256e4dca5135679a9c(),
+    '.dev.env': Ae4d67510782028d193aea2d45c6c0b1d(),
     'lib/presentation_layer/app.dart': Ae4d9e46b3f3f55845abb547d733b638f(),
     'lib/business_layer/extensions/password_validate_extension.dart':
         Aee2498eea986eb4d4b3268a38105fed2(),

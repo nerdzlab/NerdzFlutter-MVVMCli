@@ -1,8 +1,20 @@
+## 1.1.0
+
+### Added
+
+- Initial commits feature.
+
+### Changed
+
+- Refactored code.
+- Template flavors.
+- Documentation.
+
 ## 1.0.2
 
 ### Changed
 
-- Updated template to include .env files.
+- Template to include .env files.
 
 ## 1.0.1
 
