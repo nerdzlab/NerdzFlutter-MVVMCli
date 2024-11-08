@@ -46,8 +46,6 @@ class CreateCommand implements CommandInterface {
       print(green('Removing old files'));
       await FileUtil.removeFile(
           FileConstants.runnerXcschemePath()); // Removing old Runner
-      await FileUtil.removeFile(
-          FileConstants.mainDartPath()); // Removing old main.dart
 
       print(green('Updating .gitignore for ENV'));
       await FileUtil.updateGitignoreData();
@@ -61,6 +59,8 @@ class CreateCommand implements CommandInterface {
         await ProcessUtil.gitCommit(message: 'Init repo', allowEmpty: true);
         await ProcessUtil.gitAddAll();
         await ProcessUtil.gitCommit(message: 'Init project');
+      } else {
+        print(yellow('Skipping adding git initial comments.'));
       }
 
       print(green('Successfully generated MVVM project!'));
