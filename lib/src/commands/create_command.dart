@@ -5,9 +5,11 @@ import 'package:mvvm_cli_nerdzlab/core/utils/extensions.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/file_util.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/flutter_util.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/validator_util.dart';
+import 'package:mvvm_cli_nerdzlab/src/commands/command_interface.dart';
 import 'package:path/path.dart';
 
-class CreateCommand {
+class CreateCommand implements CommandInterface {
+  @override
   void run() async {
     try {
       var projectName = ask('Project name:', validator: ProjectNameValidator());
@@ -46,6 +48,9 @@ class CreateCommand {
           'xcshareddata', 'xcschemes', 'Runner.xcscheme'));
       // Old main.dart
       await FileUtil.removeFile(join(projectName, 'lib', 'main.dart'));
+
+      print(green('Updating .gitignore for ENV'));
+      await FileUtil.updateGitignoreData(projectName);
 
       print(green('Running `pub get` command.'));
       final pubGetResult = await FlutterUtil.pubGet(projectName);
