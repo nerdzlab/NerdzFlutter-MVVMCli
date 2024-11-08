@@ -1,7 +1,7 @@
 import 'package:args/args.dart';
 import 'package:dcli/dcli.dart';
-import 'package:mvvm_cli_nerdzlab/core/constatns/exit_code.dart';
-import 'package:mvvm_cli_nerdzlab/core/constatns/parser_constants.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/exit_code.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/parser_constants.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/arg_parser_builder.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/create_command.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/help_command.dart';

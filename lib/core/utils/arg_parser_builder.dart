@@ -1,5 +1,5 @@
 import 'package:args/args.dart';
-import 'package:mvvm_cli_nerdzlab/core/constatns/parser_constants.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/parser_constants.dart';
 
 sealed class ArgParserBuilder {
   static ArgParser buildParser() {

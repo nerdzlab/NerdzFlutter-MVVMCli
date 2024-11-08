@@ -2,3 +2,9 @@ externals:
   - external:
     path: resource/.vscode
     mount: .vscode
+  - external:
+    path: resource/.prod.env
+    mount: .prod.env
+  - external:
+    path: resource/.dev.env
+    mount: .dev.env
