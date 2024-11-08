@@ -45,6 +45,19 @@ abstract class FileUtil {
     await File(fileToRemove).delete();
   }
 
+  static Future<void> updateGitignoreData(String path) async {
+    final fileToUpdate = join(Directory.current.path, path, '.gitignore');
+    print(grey('\tUpdating: $fileToUpdate'));
+
+    String data = await File(fileToUpdate).readAsString();
+
+    data = '''$data\n# Env
+*.env
+*_env.g.dart''';
+
+    await File(fileToUpdate).writeAsString(data);
+  }
+
   static Future<void> renameIdentifierInDirectory({
     required String projectFolder,
     required String newIdentifier,

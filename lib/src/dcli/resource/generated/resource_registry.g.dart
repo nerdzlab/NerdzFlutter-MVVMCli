@@ -27,6 +27,7 @@ import 'A57ad1640d1e8bf72a9582e1c9df620db.g.dart';
 import 'A5bd58c253cb49467e9fecc028b697b85.g.dart';
 import 'A5d4abb4ce5aa55792aca02e7ee9a8d1a.g.dart';
 import 'A5d651f24a14745d52a51d6fdbf925de6.g.dart';
+import 'A5dc34467d083121d3f40b8bea61d136b.g.dart';
 import 'A5eff10f65ed2c8359e80aaea15cb2991.g.dart';
 import 'A613eab17e1396af07e9a2c6b0a1984df.g.dart';
 import 'A62f796fa6d7edf5c14030978abf529da.g.dart';
@@ -48,6 +49,7 @@ import 'Aaf6432916c128cfb8eace96eda3e2c9a.g.dart';
 import 'Aafca29a160703078b1f403535c51195e.g.dart';
 import 'Ab192359fd11a5790b96943f26aed50a9.g.dart';
 import 'Abd17acdf48fe12226ff30811929c6635.g.dart';
+import 'Abd95856c717cbf9fa104554c181610aa.g.dart';
 import 'Ac47d0d806ec79a051b171ad3050e8777.g.dart';
 import 'Ac5d7050a167e1da76bdd7b92e982a75e.g.dart';
 import 'Ac5ee828f9c68f5ed488859977eac9b76.g.dart';
@@ -57,6 +59,7 @@ import 'Acafe38d0c56f9ea4e818076d70b0d0c6.g.dart';
 import 'Acb5197d6463711d85b53d4f6d32862b1.g.dart';
 import 'Ace218cd80a3f6a56e94e276494bee4d6.g.dart';
 import 'Adc50e211fafde9b14deb2ae3fb2502af.g.dart';
+import 'Adf1749bffa593a5462b3029eb1212003.g.dart';
 import 'Ae2f5746e54fa1d0d88858c833263983d.g.dart';
 import 'Ae3f262b2908d5b2145ec991dca6c4d5b.g.dart';
 import 'Ae4ba41d03adbb8256e4dca5135679a9c.g.dart';
@@ -66,6 +69,7 @@ import 'Aef6d7ced008982027439054801613335.g.dart';
 import 'Af0aea8c0173fd222aea23b6cbcd408e8.g.dart';
 import 'Af61e0032927093680a69524f89fe52ae.g.dart';
 import 'Af7f238e133b5059d3e59191cb9a4383a.g.dart';
+import 'Af93bd54deb10fc8c566b87e8632d5ff2.g.dart';
 import 'Aff99ac9c08f93d659a1072f218718887.g.dart';
 
 /// GENERATED -- GENERATED
@@ -131,6 +135,7 @@ class ResourceRegistry {
     'lib/data_layer/models/fresh.dart': A5d4abb4ce5aa55792aca02e7ee9a8d1a(),
     'ios/Flutter/flutter_export_environment.sh':
         A5d651f24a14745d52a51d6fdbf925de6(),
+    'lib/env/dev_env.dart': A5dc34467d083121d3f40b8bea61d136b(),
     'lib/presentation_layer/general/base/base_imports.dart':
         A5eff10f65ed2c8359e80aaea15cb2991(),
     'ios/Runner/Info.plist': A613eab17e1396af07e9a2c6b0a1984df(),
@@ -165,6 +170,7 @@ class ResourceRegistry {
     'lib/localizations/app_localizations.dart':
         Ab192359fd11a5790b96943f26aed50a9(),
     'pubspec.yaml': Abd17acdf48fe12226ff30811929c6635(),
+    'lib/env/prod_env.g.dart': Abd95856c717cbf9fa104554c181610aa(),
     'lib/presentation_layer/general/base/theme/app_text_theme.dart':
         Ac47d0d806ec79a051b171ad3050e8777(),
     'lib/main_dev.dart': Ac5d7050a167e1da76bdd7b92e982a75e(),
@@ -178,6 +184,7 @@ class ResourceRegistry {
     'lib/business_layer/network/api/endpoints.dart':
         Ace218cd80a3f6a56e94e276494bee4d6(),
     'assets/colors/primary.xml': Adc50e211fafde9b14deb2ae3fb2502af(),
+    'lib/env/dev_env.g.dart': Adf1749bffa593a5462b3029eb1212003(),
     'lib/presentation_layer/general/base/loading_view_model.dart':
         Ae2f5746e54fa1d0d88858c833263983d(),
     'lib/business_layer/network/abstract/app_api_type.dart':
@@ -195,6 +202,7 @@ class ResourceRegistry {
         Af61e0032927093680a69524f89fe52ae(),
     'lib/presentation_layer/general/base/app_theme.dart':
         Af7f238e133b5059d3e59191cb9a4383a(),
+    'lib/env/prod_env.dart': Af93bd54deb10fc8c566b87e8632d5ff2(),
     'lib/presentation_layer/general/base/snack_notification.dart':
         Aff99ac9c08f93d659a1072f218718887(),
   };
