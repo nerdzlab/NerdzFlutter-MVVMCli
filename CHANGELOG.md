@@ -1,3 +1,13 @@
+## [Unreleased]
+
+### Added
+
+- Initial commits feature.
+
+### Changed
+
+- Refactored code.
+
 ## 1.0.2
 
 ### Changed
