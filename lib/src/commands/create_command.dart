@@ -6,15 +6,16 @@ import 'package:mvvm_cli_nerdzlab/core/utils/extensions.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/file_util.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/process_util.dart';
 import 'package:mvvm_cli_nerdzlab/core/utils/validator_util.dart';
+import 'package:mvvm_cli_nerdzlab/src/commands/command_args.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/command_interface.dart';
 
 class CreateCommand implements CommandInterface {
   @override
-  void run() async {
+  void run({CommandArgs? args}) async {
     try {
       final String projectName =
           ask('Project name:', validator: ProjectNameValidator());
-      final bool addInitialCommits = _askForInitialCommits();
+      final bool addInitialCommits = askForYesOrNo('Add initial commits');
 
       print(green('Creating Flutter project.'));
       await ProcessUtil.createProject(projectName);
@@ -68,13 +69,5 @@ class CreateCommand implements CommandInterface {
       print(red(e.toString()));
       ExitCode.error();
     }
-  }
-
-  bool _askForInitialCommits() {
-    final String response =
-        ask('Add initial commits [Y/n]:', validator: YesNoValidator());
-
-    if (response == 'Y' || response == 'y' || response == '1') return true;
-    return false;
   }
 }

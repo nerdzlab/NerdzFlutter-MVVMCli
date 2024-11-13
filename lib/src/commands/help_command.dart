@@ -1,5 +1,6 @@
 import 'package:args/args.dart';
 import 'package:dcli/dcli.dart';
+import 'package:mvvm_cli_nerdzlab/src/commands/command_args.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/command_interface.dart';
 
 class HelpCommand implements CommandInterface {
@@ -8,7 +9,7 @@ class HelpCommand implements CommandInterface {
   final ArgParser _argParser;
 
   @override
-  void run() {
+  void run({CommandArgs? args}) {
     print(blue('Usage: mvvm <flags> [arguments]\n${_argParser.usage}'));
   }
 }

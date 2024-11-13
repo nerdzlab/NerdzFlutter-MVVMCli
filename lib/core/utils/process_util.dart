@@ -12,6 +12,9 @@ abstract class ProcessUtil {
         '--platforms=android,ios',
       ]);
 
+  static Future<void> genL10n() => _runProcess('flutter', ['gen-l10n'],
+      workingDirectory: Directory.current.path);
+
   static Future<void> pubGet() => _runProcess('flutter', ['pub', 'get'],
       workingDirectory: Directory.current.path);
 

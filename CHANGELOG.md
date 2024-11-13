@@ -1,3 +1,13 @@
+## 1.2.0
+
+### Added
+
+- Analyze command for arb files.
+
+### Changed
+
+- Env files.
+
 ## 1.1.0
 
 ### Added
