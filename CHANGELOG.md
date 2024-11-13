@@ -1,4 +1,8 @@
-## [UNRELEASED]
+## 1.2.0
+
+### Added
+
+- Analyze command for arb files.
 
 ### Changed
 

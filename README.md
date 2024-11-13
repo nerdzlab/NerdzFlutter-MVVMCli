@@ -6,6 +6,7 @@ MVVM CLI Tool, a command-line utility designed to streamline the creation of MVV
 
 - **Create New Projects**: Generate a complete MVVM project.
 - **Git Initial Commits(optional)**: Initial commits in created project.
+- **Analyze .arb files**: Analyze arb files for uses in dart code `mvvm analyze --arb`.
 
 ## Installation
 
