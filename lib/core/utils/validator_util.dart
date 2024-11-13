@@ -19,7 +19,7 @@ class ProjectNameValidator extends AskValidator {
 }
 
 /// Validator fro yes/no answer
-/// 
+///
 /// RegExp: [YyNn10]
 /// For example: Y/y, N/n, 1/0
 class YesNoValidator extends AskValidator {
@@ -33,4 +33,11 @@ class YesNoValidator extends AskValidator {
     }
     return line;
   }
+}
+
+bool askForYesOrNo(String title) {
+  final String response = ask('$title [Y/n]:', validator: YesNoValidator());
+
+  if (response == 'Y' || response == 'y' || response == '1') return true;
+  return false;
 }
