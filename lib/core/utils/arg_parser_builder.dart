@@ -12,6 +12,22 @@ sealed class ArgParserBuilder {
       )
       ..addCommand(
         ParserConstants.createCommand,
+      )
+      ..addCommand(
+        ParserConstants.analyzeCommand,
+        ArgParser()
+          ..addFlag(
+            ParserConstants.verboseFlag,
+            abbr: ParserConstants.verboseAbr,
+            negatable: false,
+            help: 'Verbose output',
+          )
+          ..addFlag(
+            ParserConstants.arbFlag,
+            abbr: ParserConstants.arbAbr,
+            negatable: false,
+            help: 'Should analyze arb',
+          ),
       );
   }
 }
