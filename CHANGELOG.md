@@ -1,3 +1,9 @@
+## 1.2.1
+
+### Added
+
+- Template navigator observer.
+
 ## 1.2.0
 
 ### Added
