@@ -36,6 +36,7 @@ import 'A62f796fa6d7edf5c14030978abf529da.g.dart';
 import 'A66623fe501dfebe6f1a3e2fdc6c353a6.g.dart';
 import 'A6aa1fefffa329899edd03defe1beda3b.g.dart';
 import 'A7f85fab7862415acb472a23d07bc24c5.g.dart';
+import 'A80b4a2ecd524ed81cb6b3f1b078b8afd.g.dart';
 import 'A81ba6db9be37927758ad4d1b3b704f04.g.dart';
 import 'A86b93c7843abd413a8372c00da339649.g.dart';
 import 'A86cc730278e8a8687a6d774e3849895f.g.dart';
@@ -151,6 +152,8 @@ class ResourceRegistry {
     'lib/gen/assets.gen.dart': A6aa1fefffa329899edd03defe1beda3b(),
     'lib/presentation_layer/general/base/theme/app_colors_theme.dart':
         A7f85fab7862415acb472a23d07bc24c5(),
+    'lib/business_layer/services/navigator_observer.dart':
+        A80b4a2ecd524ed81cb6b3f1b078b8afd(),
     'assets/colors/alerts.xml': A81ba6db9be37927758ad4d1b3b704f04(),
     'lib/business_layer/services/root_routes.dart':
         A86b93c7843abd413a8372c00da339649(),
