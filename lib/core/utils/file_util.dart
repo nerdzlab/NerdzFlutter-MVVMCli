@@ -2,11 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dcli/dcli.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/color_xml_constants.dart';
 import 'package:mvvm_cli_nerdzlab/core/constants/file_constants.dart';
 import 'package:mvvm_cli_nerdzlab/core/constants/pbxproj_constants.dart';
+import 'package:mvvm_cli_nerdzlab/core/data/color_xml.dart';
 import 'package:mvvm_cli_nerdzlab/core/data/l10n_yaml.dart';
+import 'package:mvvm_cli_nerdzlab/core/utils/extensions.dart';
 import 'package:mvvm_cli_nerdzlab/src/dcli/resource/generated/resource_registry.g.dart';
 import 'package:path/path.dart';
+import 'package:xml/xml.dart';
 
 abstract class FileUtil {
   /// Change current directory to directory that under current.
@@ -212,5 +216,103 @@ abstract class FileUtil {
         File(entity.path).writeAsStringSync(encoder.convert(arb));
       }
     }
+  }
+
+  /// Get project colors
+  static Future<List<ColorXml>> getColorsXml({bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tGetting assets: colors/.*xml'));
+    }
+
+    final colorsDirectory =
+        Directory(join(Directory.current.path, FileConstants.colorsDirectory));
+
+    if (!await colorsDirectory.exists()) {
+      throw Exception("Directory does not exist: ${colorsDirectory.path}");
+    }
+
+    final List<ColorXml> colors = [];
+    await for (var entity in colorsDirectory.list()) {
+      if (entity is File && entity.path.endsWith(FileConstants.xmlFormat)) {
+        final entityName = basename(entity.path);
+        final document = XmlDocument.parse(entity.readAsStringSync());
+        final elements = document.findAllElements('color');
+        final colorsNames =
+            (elements.map((e) => e.getAttribute('name')).toList())
+                .whereType<String>()
+                .map((e) => e.toCamelCase())
+                .toList();
+
+        if (colorsNames.isEmpty) {
+          print(grey('\tXML assets is empty: $entityName'));
+          continue;
+        }
+
+        if (verbose) {
+          print(grey(
+              '\tReading assets: $entityName with ${colorsNames.length} properties'));
+        }
+
+        colors.add(ColorXml(colors: colorsNames, fileName: entityName));
+      }
+    }
+
+    return colors;
+  }
+
+  /// Get project colors
+  static Future<void> generateColorsXml(
+      {required List<ColorXml> colors, bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tUpdating AppColorsThemeExtension'));
+    }
+
+    final appColorsThemeExtensionDirectory = Directory(join(
+        Directory.current.path,
+        FileConstants.appColorsThemeExtensionDirectory));
+
+    if (!await appColorsThemeExtensionDirectory.exists()) {
+      throw Exception(
+          "AppColorsThemeExtension directory does not exist: ${appColorsThemeExtensionDirectory.path}");
+    }
+
+    final appColorsThemeExtensionFile = File(join(
+        appColorsThemeExtensionDirectory.path,
+        FileConstants.appColorsThemeExtensionFile));
+
+    appColorsThemeExtensionFile.writeAsString(ColorXmlConstants.generateFile(
+      requiredConstructor: colors
+          .map(
+            (e) =>
+                e.colors.map((color) => '\t\trequired this.$color,').join('\n'),
+          )
+          .join('\n'),
+      classDeclaration: colors
+          .map(
+            (e) =>
+                "\n\t// ${e.fileName}\n${e.colors.map((color) => '\tfinal Color $color;').join('\n')}",
+          )
+          .join('\n'),
+      copyWithArguments: colors
+          .map(
+            (e) => e.colors.map((color) => '\t\tColor? $color,').join('\n'),
+          )
+          .join('\n'),
+      copyWithReturn: colors
+          .map(
+            (e) => e.colors
+                .map((color) => '\t\t\t$color: $color ?? this.$color,')
+                .join('\n'),
+          )
+          .join('\n'),
+      lerpReturn: colors
+          .map(
+            (e) => e.colors
+                .map((color) =>
+                    '\t\t\t$color: Color.lerp($color, other.$color, t)!,')
+                .join('\n'),
+          )
+          .join('\n'),
+    ));
   }
 }

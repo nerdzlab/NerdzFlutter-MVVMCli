@@ -30,9 +30,18 @@ abstract class FileConstants {
   static const List<String> pbxprojFormat = ['.pbxproj'];
   static const String arbFormat = '.arb';
   static const String dartFormat = '.dart';
+  static const String xmlFormat = '.xml';
 
   //
   //  Files
   //
   static const String l10nYamlFile = 'l10n.yaml';
+  static String appColorsThemeExtensionFile = 'app_colors_theme.dart';
+
+  //
+  //  Directories
+  //
+  static String colorsDirectory = join('assets', 'colors');
+  static String appColorsThemeExtensionDirectory =
+      join('lib', 'presentation_layer', 'general', 'base', 'theme');
 }

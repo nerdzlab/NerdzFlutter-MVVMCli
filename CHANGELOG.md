@@ -1,3 +1,9 @@
+## 1.3.0
+
+### Added
+
+- App colors theme generation from assets *xml.
+
 ## 1.2.1
 
 ### Added
