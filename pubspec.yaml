@@ -1,6 +1,6 @@
 name: mvvm_cli_nerdzlab
 description: MVVM CLI Tool, a command-line utility designed to streamline the creation of MVVM projects.
-version: 1.3.0
+version: 1.4.0
 repository: https://github.com/nerdzlab/NerdzFlutter-MVVMCli
 
 environment:

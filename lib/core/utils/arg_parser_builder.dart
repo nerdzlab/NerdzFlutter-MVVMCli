@@ -42,6 +42,11 @@ sealed class ArgParserBuilder {
             ParserConstants.colorsFlag,
             negatable: false,
             help: 'Should generate colors',
+          )
+          ..addFlag(
+            ParserConstants.textStylesFlag,
+            negatable: false,
+            help: 'Should generate Text Styles',
           ),
       );
   }
