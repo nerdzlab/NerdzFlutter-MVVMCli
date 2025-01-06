@@ -28,6 +28,26 @@ sealed class ArgParserBuilder {
             negatable: false,
             help: 'Should analyze arb',
           ),
+      )
+      ..addCommand(
+        ParserConstants.generateCommand,
+        ArgParser()
+          ..addFlag(
+            ParserConstants.verboseFlag,
+            abbr: ParserConstants.verboseAbr,
+            negatable: false,
+            help: 'Verbose output',
+          )
+          ..addFlag(
+            ParserConstants.colorsFlag,
+            negatable: false,
+            help: 'Should generate colors',
+          )
+          ..addFlag(
+            ParserConstants.textStylesFlag,
+            negatable: false,
+            help: 'Should generate Text Styles',
+          ),
       );
   }
 }

@@ -6,6 +6,7 @@ import 'package:mvvm_cli_nerdzlab/core/utils/arg_parser_builder.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/analyze_command.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/command_args.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/create_command.dart';
+import 'package:mvvm_cli_nerdzlab/src/commands/generate_command.dart';
 import 'package:mvvm_cli_nerdzlab/src/commands/help_command.dart';
 
 void runCLI(List<String> arguments) {
@@ -16,6 +17,7 @@ void runCLI(List<String> arguments) {
   final HelpCommand helpCommand = HelpCommand(argParser: argParser);
   final CreateCommand createCommand = CreateCommand();
   final AnalyzeCommand analyzeCommand = AnalyzeCommand();
+  final GenerateCommand generateCommand = GenerateCommand();
 
   try {
     final ArgResults results = argParser.parse(arguments);
@@ -37,6 +39,19 @@ void runCLI(List<String> arguments) {
                       false,
               analyzeArb: results.command?.wasParsed(ParserConstants.arbFlag) ??
                   false));
+      return;
+    }
+
+    if (results.command?.name == ParserConstants.generateCommand) {
+      generateCommand.run(
+          args: GenerateCommandArgs(
+        verbose:
+            results.command?.wasParsed(ParserConstants.verboseFlag) ?? false,
+        generateColors:
+            results.command?.wasParsed(ParserConstants.colorsFlag) ?? false,
+        generateTextStyles:
+            results.command?.wasParsed(ParserConstants.textStylesFlag) ?? false,
+      ));
       return;
     }
 

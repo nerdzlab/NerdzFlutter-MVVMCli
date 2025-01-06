@@ -2,11 +2,15 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:dcli/dcli.dart';
+import 'package:mvvm_cli_nerdzlab/core/constants/theme_constants.dart';
 import 'package:mvvm_cli_nerdzlab/core/constants/file_constants.dart';
 import 'package:mvvm_cli_nerdzlab/core/constants/pbxproj_constants.dart';
+import 'package:mvvm_cli_nerdzlab/core/data/color_xml.dart';
 import 'package:mvvm_cli_nerdzlab/core/data/l10n_yaml.dart';
+import 'package:mvvm_cli_nerdzlab/core/utils/extensions.dart';
 import 'package:mvvm_cli_nerdzlab/src/dcli/resource/generated/resource_registry.g.dart';
 import 'package:path/path.dart';
+import 'package:xml/xml.dart';
 
 abstract class FileUtil {
   /// Change current directory to directory that under current.
@@ -212,5 +216,219 @@ abstract class FileUtil {
         File(entity.path).writeAsStringSync(encoder.convert(arb));
       }
     }
+  }
+
+  /// Get project colors
+  static Future<List<ColorXml>> getColorsXml({bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tGetting assets: colors/.*xml'));
+    }
+
+    final colorsDirectory =
+        Directory(join(Directory.current.path, FileConstants.colorsDirectory));
+
+    if (!await colorsDirectory.exists()) {
+      throw Exception("Directory does not exist: ${colorsDirectory.path}");
+    }
+
+    final List<ColorXml> colors = [];
+    await for (var entity in colorsDirectory.list()) {
+      if (entity is File && entity.path.endsWith(FileConstants.xmlFormat)) {
+        final entityName = basename(entity.path);
+        final document = XmlDocument.parse(entity.readAsStringSync());
+        final elements = document.findAllElements('color');
+        final colorsNames =
+            (elements.map((e) => e.getAttribute('name')).toList())
+                .whereType<String>()
+                .map((e) => e.toCamelCase())
+                .toList();
+
+        if (colorsNames.isEmpty) {
+          print(grey('\tXML assets is empty: $entityName'));
+          continue;
+        }
+
+        if (verbose) {
+          print(grey(
+              '\tReading assets: $entityName with ${colorsNames.length} properties'));
+        }
+
+        colors.add(ColorXml(colors: colorsNames, fileName: entityName));
+      }
+    }
+
+    return colors;
+  }
+
+  static Future<List<String>> getTextStyles({bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tGetting text styles: text_style_const.dart'));
+    }
+
+    final textStylesConstFile =
+        File(join(Directory.current.path, FileConstants.appTextStyleConstFile));
+
+    if (!await textStylesConstFile.exists()) {
+      throw Exception("File does not exist: ${textStylesConstFile.path}");
+    }
+
+    final content = textStylesConstFile.readAsStringSync();
+    final matches = RegExp(r'(\w+) = TextStyle').allMatches(content);
+    final List<String> textStyles = [];
+
+    for (var element in matches) {
+      final match = element.group(1);
+      if (match == null) continue;
+
+      textStyles.add(match);
+    }
+
+    return textStyles;
+  }
+
+  static Future<void> generateColorsXml(
+      {required List<ColorXml> colors, bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tUpdating AppColorsThemeExtension'));
+    }
+
+    final appColorsThemeExtensionDirectory = Directory(
+        join(Directory.current.path, FileConstants.appThemeExtensionDirectory));
+
+    if (!await appColorsThemeExtensionDirectory.exists()) {
+      throw Exception(
+          "AppColorsThemeExtension directory does not exist: ${appColorsThemeExtensionDirectory.path}");
+    }
+
+    final appColorsThemeExtensionFile = File(join(
+        appColorsThemeExtensionDirectory.path,
+        FileConstants.appColorsThemeExtensionFile));
+
+    appColorsThemeExtensionFile.writeAsString(ThemeConstants.generateColorsFile(
+      requiredConstructor: colors
+          .map(
+            (e) =>
+                e.colors.map((color) => '\t\trequired this.$color,').join('\n'),
+          )
+          .join('\n'),
+      classDeclaration: colors
+          .map(
+            (e) =>
+                "\n\t// ${e.fileName}\n${e.colors.map((color) => '\tfinal Color $color;').join('\n')}",
+          )
+          .join('\n'),
+      copyWithArguments: colors
+          .map(
+            (e) => e.colors.map((color) => '\t\tColor? $color,').join('\n'),
+          )
+          .join('\n'),
+      copyWithReturn: colors
+          .map(
+            (e) => e.colors
+                .map((color) => '\t\t\t$color: $color ?? this.$color,')
+                .join('\n'),
+          )
+          .join('\n'),
+      lerpReturn: colors
+          .map(
+            (e) => e.colors
+                .map((color) =>
+                    '\t\t\t$color: Color.lerp($color, other.$color, t)!,')
+                .join('\n'),
+          )
+          .join('\n'),
+    ));
+  }
+
+  static Future<void> generateTextStyles(
+      {required List<String> textStyles, bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tUpdating AppTextThemeExtension'));
+    }
+
+    final appThemeExtension = Directory(
+        join(Directory.current.path, FileConstants.appThemeExtensionDirectory));
+
+    if (!await appThemeExtension.exists()) {
+      throw Exception(
+          "AppTextThemeExtension directory does not exist: ${appThemeExtension.path}");
+    }
+
+    final appTextStylesExtensionFile = File(
+        join(appThemeExtension.path, FileConstants.appTextStylesExtensionFile));
+
+    appTextStylesExtensionFile
+        .writeAsString(ThemeConstants.generateTextStylesFile(
+      requiredConstructor:
+          textStyles.map((e) => '\t\trequired this.$e,').join('\n'),
+      classDeclaration: textStyles
+          .map(
+            (e) => "\tfinal TextStyle $e;",
+          )
+          .join('\n'),
+      copyWithArguments: textStyles
+          .map(
+            (e) => '\t\tTextStyle? $e,',
+          )
+          .join('\n'),
+      copyWithReturn:
+          textStyles.map((e) => '\t\t\t$e: $e ?? this.$e,').join('\n'),
+      lerpReturn: textStyles
+          .map((e) => '\t\t\t$e: TextStyle.lerp($e, other.$e, t)!,')
+          .join('\n'),
+    ));
+  }
+
+  static Future<void> updateTextThemeColors(
+      {required List<ColorXml> colors, bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tUpdating AppTheme for Colors'));
+    }
+
+    final appTheme =
+        File(join(Directory.current.path, FileConstants.appThemeFile));
+
+    if (!await appTheme.exists()) {
+      throw Exception("AppTheme file does not exist: ${appTheme.path}");
+    }
+
+    final content = appTheme.readAsStringSync();
+    final allColorNames = colors
+        .map((e) => e.colors)
+        .expand(
+          (element) => element,
+        )
+        .toList();
+    final newContent = content.replaceAllMapped(
+        RegExp(r'AppColorsThemeExtension\(\n(.*?\n)*?\s*\);'),
+        (match) => 'AppColorsThemeExtension(\n${allColorNames.map(
+              (e) => '\t\t$e: ColorName.$e,\n',
+            ).join()}\t);');
+
+    appTheme.writeAsString(newContent);
+  }
+
+  static Future<void> updateTextThemeStyles(
+      {required List<String> textStyles, bool verbose = false}) async {
+    if (verbose) {
+      print(grey('\tUpdating AppTheme for TextStyles'));
+    }
+
+    final appTheme =
+        File(join(Directory.current.path, FileConstants.appThemeFile));
+
+    if (!await appTheme.exists()) {
+      throw Exception("AppTheme file does not exist: ${appTheme.path}");
+    }
+
+    final content = appTheme.readAsStringSync();
+
+    final newContent = content.replaceAllMapped(
+        RegExp(r'AppTextThemeExtension\(\n(.*?\n)*?\s*\);'),
+        (match) => 'AppTextThemeExtension(\n${textStyles.map(
+              (e) => '\t\t$e: TextStyleConst.$e,\n',
+            ).join()}\t);');
+
+    appTheme.writeAsString(newContent);
   }
 }

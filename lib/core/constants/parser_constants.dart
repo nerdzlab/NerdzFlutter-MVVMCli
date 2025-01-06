@@ -12,10 +12,13 @@ abstract class ParserConstants {
   static const String arbFlag = 'arb';
   static const String arbAbr = 'a';
 
+  static const String colorsFlag = 'colors';
+  static const String textStylesFlag = 'textStyles';
   //
   //  Commands
   //
 
   static const String createCommand = 'create';
   static const String analyzeCommand = 'analyze';
+  static const String generateCommand = 'generate';
 }
