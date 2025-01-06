@@ -16,16 +16,18 @@ class GenerateCommand implements CommandInterface {
       return;
     }
 
-    if (!args.generateColors) {
-      print(red(
-          'When using generate command should specify type of generation. For example --colors'));
-      ExitCode.error();
+    bool? generateColors = args.generateColors;
+    bool? generateTextStyles = args.generateTextStyles;
 
-      return;
+    if (!generateColors && !generateTextStyles) {
+      print(grey('No arguments specified, generating Colors & Text Styles'));
+
+      generateColors = true;
+      generateTextStyles = true;
     }
 
     try {
-      if (args.generateColors) {
+      if (generateColors) {
         print(green('Getting assets/colors .xml files'));
         final colors = await FileUtil.getColorsXml(verbose: args.verbose);
 
@@ -37,8 +39,37 @@ class GenerateCommand implements CommandInterface {
         print(green('Updating project AppColorsThemeExtension'));
         await FileUtil.generateColorsXml(verbose: args.verbose, colors: colors);
 
+        print(green('Updating Text Theme'));
+        await FileUtil.updateTextThemeColors(
+            verbose: args.verbose, colors: colors);
+
         print(green(
             'Successfully generate AppColorsThemeExtension from assets/colors/*xml!'));
+      }
+
+      if (generateTextStyles) {
+        if (generateColors) {
+          print(green(''));
+        }
+        
+        print(green('Getting Text Styles .xml files'));
+        final textStyles = await FileUtil.getTextStyles(verbose: args.verbose);
+
+        if (textStyles.isEmpty) {
+          print(green('Not found any TextStyles in text_style_const.dart'));
+          return;
+        }
+
+        print(green('Updating project AppTextThemeExtension'));
+        await FileUtil.generateTextStyles(
+            verbose: args.verbose, textStyles: textStyles);
+
+        print(green('Updating TextStyles'));
+        await FileUtil.updateTextThemeStyles(
+            verbose: args.verbose, textStyles: textStyles);
+
+        print(green(
+            'Successfully generate AppTextThemeExtension from text_style_const.dart!'));
       }
     } on Exception catch (e) {
       print(red(e.toString()));

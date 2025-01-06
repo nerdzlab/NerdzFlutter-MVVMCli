@@ -1,3 +1,9 @@
+## 1.4.0
+
+### Added
+
+- App Text Styles theme generation from text styles constant.
+
 ## 1.3.0
 
 ### Added

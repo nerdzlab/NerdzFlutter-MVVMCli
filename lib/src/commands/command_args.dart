@@ -21,12 +21,17 @@ class AnalyzeCommandArgs extends CommandArgs {
 }
 
 class GenerateCommandArgs extends CommandArgs {
-  GenerateCommandArgs({required super.verbose, required this.generateColors});
+  GenerateCommandArgs({
+    required super.verbose,
+    required this.generateColors,
+    required this.generateTextStyles,
+  });
 
   final bool generateColors;
+  final bool generateTextStyles;
 
   @override
   String toString() {
-    return 'GenerateCommandArgs instance.\nData:\nverbose - $verbose\ngenerate colors - $generateColors';
+    return 'GenerateCommandArgs instance.\nData:\nverbose - $verbose\ngenerate colors - $generateColors\ngenerate text styles - $generateTextStyles';
   }
 }

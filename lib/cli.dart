@@ -45,12 +45,13 @@ void runCLI(List<String> arguments) {
     if (results.command?.name == ParserConstants.generateCommand) {
       generateCommand.run(
           args: GenerateCommandArgs(
-              verbose:
-                  results.command?.wasParsed(ParserConstants.verboseFlag) ??
-                      false,
-              generateColors:
-                  results.command?.wasParsed(ParserConstants.colorsFlag) ??
-                      false));
+        verbose:
+            results.command?.wasParsed(ParserConstants.verboseFlag) ?? false,
+        generateColors:
+            results.command?.wasParsed(ParserConstants.colorsFlag) ?? false,
+        generateTextStyles:
+            results.command?.wasParsed(ParserConstants.textStylesFlag) ?? false,
+      ));
       return;
     }
 

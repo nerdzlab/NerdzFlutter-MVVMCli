@@ -2,11 +2,20 @@
 
 MVVM CLI Tool, a command-line utility designed to streamline the creation of MVVM (Model-View-ViewModel) projects. This tool automates the initial setup of your MVVM architecture, making it easier and faster to get started with your development process.
 
-## Features
+## Features & Usage
 
 - **Create New Projects**: Generate a complete MVVM project.
 - **Git Initial Commits(optional)**: Initial commits in created project.
-- **Analyze .arb files**: Analyze arb files for uses in dart code `mvvm analyze --arb`.
+
+Use `mvvm create`.
+
+- **Analyze .arb files**: Analyze arb files for usage in dart code, and delete not necessary arb keys.
+
+Use `mvvm analyze --arb`.
+
+- **Generate Colors & TextStyles**: Generate colors from `.xml` files and TextStyles `from text_style_const.dart` file.
+
+Use `mvvm generate` or specify the `--colors` or `--textStyle` to generate only one type: `mvvm generate --colors`.
 
 ## Installation
 
@@ -28,12 +37,4 @@ To verify that the installation was successful and the PATH is correctly set, ru
 
 ```bash
 mvvm
-```
-
-## Usage
-
-To use the CLI tool, navigate to your desired directory and run:
-
-```bash
-mvvm create
 ```
