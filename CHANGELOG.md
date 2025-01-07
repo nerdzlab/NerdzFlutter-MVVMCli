@@ -1,3 +1,9 @@
+## 1.4.1
+
+### Changed
+
+- Android flavor name from production to prod.
+
 ## 1.4.0
 
 ### Added
