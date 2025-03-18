@@ -5,9 +5,49 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "prod",
+            "name": "dev (debug mode)",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--target",
+                "lib/main_dev.dart"
+            ]
+        },
+        {
+            "name": "dev (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--target",
+                "lib/main_dev.dart"
+            ]
+        },
+        {
+            "name": "dev (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+                "--target",
+                "lib/main_dev.dart"
+            ]
+        },
+        {
+            "name": "prod (debug mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
             "program": "lib/main_prod.dart",
             "args": [
                 "--flavor",
@@ -17,16 +57,30 @@
             ]
         },
         {
-            "name": "dev",
+            "name": "prod (profile mode)",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_dev.dart",
+            "flutterMode": "profile",
+            "program": "lib/main_prod.dart",
             "args": [
                 "--flavor",
-                "dev",
+                "prod",
                 "--target",
-                "lib/main_dev.dart"
+                "lib/main_prod.dart"
             ]
-        }
+        },
+        {
+            "name": "prod (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "program": "lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod",
+                "--target",
+                "lib/main_prod.dart"
+            ]
+        },
     ]
 }
