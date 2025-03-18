@@ -9,4 +9,7 @@ class LoadingViewModel with ChangeNotifier {
     _isLoading = isLoading;
     notifyListeners();
   }
+
+  viewDidAppear() {}
+  viewDidDisappear() {}
 }

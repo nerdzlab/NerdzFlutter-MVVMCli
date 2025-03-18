@@ -1,3 +1,14 @@
+## 1.4.2
+
+### Changed
+
+- VS Code launch config.
+- iOS Prod scheme.
+
+### Added
+
+- LoadingViewModel new methods.
+
 ## 1.4.1
 
 ### Changed
